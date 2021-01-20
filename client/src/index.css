@@ -92,12 +92,29 @@ body {
   color: white;
 }
 
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+}
+
 .home-button {
+  margin-right: 10px;
   padding: 5px 10px;
   background-color: lightskyblue;
 }
 
 .movie-warning {
   color: red;
+  text-align: center;
+}
+
+.add-button {
+  padding: 5px 10px;
+  background-color: lightseagreen;
+  text-decoration: none;
+}
+
+.movie-warning {
+  color: green;
   text-align: center;
 }
