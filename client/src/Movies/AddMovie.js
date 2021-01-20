@@ -29,10 +29,7 @@ const AddMovie = (props) => {
       .post(`http://localhost:5000/api/movies`, updatedMovie)
       .then(res => {
         console.log('Adding Movie:', res.data);
-        props.setMovieList(
-          ...props.movieList,
-          res.data
-        );
+        props.setMovieList(res.data);
         setFormState(initialState);
         push('/');
       })
