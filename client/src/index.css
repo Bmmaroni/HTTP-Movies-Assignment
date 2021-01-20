@@ -66,12 +66,55 @@ body {
   color: white;
 }
 
+.edit-button {
+  position: absolute;
+  top: 75px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 14px;
+  background-color: lightskyblue;
+}
+.edit-button:hover {
+  background-color: blue;
+  color: white;
+}
+
+.delete-button {
+  position: absolute;
+  top: 125px;
+  right: 15px;
+  border: 1px solid grey;
+  padding: 5px 14px;
+  background-color: lightcoral;
+}
+.delete-button:hover {
+  background-color: red;
+  color: white;
+}
+
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+}
+
 .home-button {
+  margin-right: 10px;
   padding: 5px 10px;
   background-color: lightskyblue;
 }
 
 .movie-warning {
   color: red;
+  text-align: center;
+}
+
+.add-button {
+  padding: 5px 10px;
+  background-color: lightseagreen;
+  text-decoration: none;
+}
+
+.movie-warning {
+  color: green;
   text-align: center;
 }
