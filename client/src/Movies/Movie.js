@@ -34,7 +34,7 @@ function Movie({ addToSavedList }) {
         Save
       </div>
       
-      <div className="edit-button" onClick={saveMovie}>
+      <div className="edit-button" onClick={}>
         Edit
       </div>
     </div>

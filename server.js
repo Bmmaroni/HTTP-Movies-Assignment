@@ -73,7 +73,7 @@ app.post("/api/movies", (req, res) => {
   res.status(201).json(movies);
 });
 
-app.put("/api/movies/:id", (req, res) => {
+app.put("/api/movies/", (req, res) => {
   if (!req.params.id)
     res.status(400).send("Your request is missing the movie id");
   if (
