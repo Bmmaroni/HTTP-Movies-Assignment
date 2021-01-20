@@ -6,7 +6,7 @@ const initialState = {
   title: '',
   director: '',
   metascore: '',
-  stars: []
+  stars: ''
 }
 
 const UpdateMovie = (props) => {
@@ -18,7 +18,11 @@ const UpdateMovie = (props) => {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
       .then(res => {
-        setFormState(res.data)
+        const response = {
+          ...res.data,
+          stars: res.data.stars.toString()
+        }
+        setFormState(response);
       })
       .catch(err => console.log(err));
   }, [id])
@@ -30,13 +34,25 @@ const UpdateMovie = (props) => {
 
   const submitForm = e => {
     e.preventDefault();
+    const updatedMovie = {
+      ...formState,
+      stars: formState.stars.split(',')
+    }
     axios
-      .put(`http://localhost:5000/api/movies/${id}`, formState)
+      .put(`http://localhost:5000/api/movies/${id}`, updatedMovie)
       .then(res => {
         console.log('Submitting edits:', res);
-        props.setMovieList(res.data); 
-        push('/');
+        props.setMovieList(
+          props.movieList.map(item => {
+            if(item.id === res.data.id) {
+              return res.data
+            } else {
+              return item;
+            }
+          })
+        );
         setFormState(initialState);
+        push('/');
       })
       .catch(err => console.log(err));
   }

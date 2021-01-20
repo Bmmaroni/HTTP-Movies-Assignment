@@ -13,7 +13,10 @@ const App = () => {
   const getMovieList = () => {
     axios
       .get("http://localhost:5000/api/movies")
-      .then(res => setMovieList(res.data))
+      .then(res => {
+        console.log(res.data);
+        setMovieList(res.data);
+      })
       .catch(err => console.log(err.response));
   };
 
@@ -23,6 +26,7 @@ const App = () => {
 
   useEffect(() => {
     getMovieList();
+    console.log('fired');
   }, []);
 
   return (
